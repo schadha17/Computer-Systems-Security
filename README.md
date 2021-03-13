@@ -27,4 +27,4 @@
 
 ### Part B - Access Control Lists
 - Managing Access Control Lists (ACL)
-- Using commands such as ```diff - getfacl``` to manipulate ACL for a directory structure
+- Using commands such as ```ruby getfacl``` to manipulate ACL for a directory structure
