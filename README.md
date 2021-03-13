@@ -10,7 +10,7 @@
     <li>
       <a href="#assignment-1">ASSIGNMENT 1</a>
       <ul>
-        <li><a href="#part-a">Part A - Basic Password Cracking</a></li>
+        <li><a href="#part-a"> Part A - Basic Password Cracking</a></li>
       </ul>
     </li>
   </ol>
