@@ -12,7 +12,7 @@
 - Developing a script to generate candidate passwords from <b> John </b> and using them to decrypt an AES 256 encrypted file using ```openssl``` command
 
 ### Part C - Online attack
-- Creating ssh tunnel to access a website hosted on VM on port 5000
+- Creating ssh tunnel and local port forwarding to access a website hosted on hidden port inside VM
 - Finding active usernames on the website using a <b> public dump of firestnames from Facebook </b> 
 - Using an efficient wordlist (500 worst passwords) to crack password of an active account
-- Makes use of bash script and ```curl``` command
+- Makes use of a bash script, ```curl``` command and ```HTTP POST``` request
