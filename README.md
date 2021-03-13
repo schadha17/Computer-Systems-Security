@@ -10,7 +10,7 @@
     <li>
       <a href="#assignment-1">ASSIGNMENT 1</a>
       <ul>
-        <li><a href="#part-a:-basic-password-cracking"> Part A: Basic Password Cracking</a></li>
+        <li><a href="#part-a-basic-password-cracking"> Part A: Basic Password Cracking</a></li>
       </ul>
     </li>
   </ol>
@@ -18,7 +18,7 @@
 
 
 ## ASSIGNMENT 1
-### Part A: Basic Password Cracking
+### Part A Basic Password Cracking
 - Cracking password dumps of a linux system (hashes) with <b>John the Ripper</b>
 - 3 files with different difficulty develop the ability to use modes such as single, wordlist, incremental etc. 
 
