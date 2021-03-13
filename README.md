@@ -13,7 +13,14 @@
         <li><a href="#part-a--basic-password-cracking"> Part A- Basic Password Cracking</a></li>
         <li><a href="#part-b--offline-attack"> Part B- Offline attack</a></li>
         <li><a href="#part-c--online-attack"> Part C- Online attack</a></li>
-
+      </ul>
+    </li>
+    <li>
+      <a href="#assignment-2">ASSIGNMENT 2</a>
+      <ul>
+        <li><a href="#part-a--file-system-permissions"> Part A- File System Permissions </a></li>
+        <li><a href="#part-b--access-control-lists"> Part B- Access Control Lists</a></li>
+        <li><a href="#part-c--race-conditions"> Part C- Race Conditions</a></li>
       </ul>
     </li>
   </ol>
