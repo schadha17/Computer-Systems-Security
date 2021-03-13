@@ -1,7 +1,7 @@
 # Computer-Systems-Security-COMP4108
 
 - Disclaimer: I do not promote plagarism or copying of the code
-- This repository will involve writeups for the assignments for education and learning purposes 
+- This repository will involve writeups of the assignments for education and learning purposes 
 
 ## ASSIGNMENT 1
 ### Part A - Basic Password Cracking
