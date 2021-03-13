@@ -11,3 +11,8 @@
 ### Part B - Offline attack
 - Developing a script to generate candidate passwords from <b> John </b> and using them to decrypt an AES 256 encrypted file using ```openssl``` command
 
+### Part C - Online attack
+- Creating ssh tunnel to access a website hosted on VM on port 5000
+- Finding active usernames on the website using a <b> public dump of firestnames from Facebook 
+- Using an efficient wordlist (500 worst passwords) to crack password of an active account
+- Uses bash scripting and ```curl``` command
