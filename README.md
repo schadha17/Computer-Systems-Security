@@ -21,4 +21,10 @@
 
 ## ASSIGNMENT 2
 ### Part A - File System Permissions 
-- Writing a bash function to convert a GID to a group name using the Linux group file
+- Playing around with UID, GID and setting permission bits 
+- Writing a bash function to find group name from a GID using the Linux group file
+- 
+
+### Part B - Access Control Lists
+- Managing Access Control Lists (ACL)
+- Using commands such as ```<p style="color:red;"> getfacl </p>``` to manipulate ACL for a directory structure
