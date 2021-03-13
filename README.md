@@ -16,3 +16,7 @@
 - Finding active usernames on the website using a <b> public dump of firestnames from Facebook </b> 
 - Using an efficient wordlist (500 worst passwords) to crack password of an active account
 - Makes use of a bash script, ```curl``` command and ```HTTP POST``` request
+
+<br> <hr> 
+
+## ASSIGNMENT 2
