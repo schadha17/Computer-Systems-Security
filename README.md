@@ -27,4 +27,4 @@
 
 ### Part B - Access Control Lists
 - Managing Access Control Lists (ACL)
-- Using commands such as ```<p style="color:red;"> getfacl </p>``` to manipulate ACL for a directory structure
+- Using commands such as <code> getfacl </code> to manipulate ACL for a directory structure
