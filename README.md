@@ -23,7 +23,7 @@
 ### Part A - File System Permissions 
 - Playing around with UID, GID and setting permission bits 
 - Writing a bash function to find group name from a GID using the Linux group file
-- Using ```find``` command with ```-exec``` paramer to find files based on defined rules
+- Using ```find``` command with ```-exec``` paramer to execute the command after ```-exec``` for all files that match some defined rules
 
 ### Part B - Access Control Lists
 - Using commands such as ```getfacl```, ```setfacl```, ```usermod``` to manipulate ACL for a directory structure
