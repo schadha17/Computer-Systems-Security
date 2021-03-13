@@ -3,6 +3,20 @@
 - DISCLAIMER: I do not promote plagarism or copying of the code
 - This repository will involve writeups of the assignments for education and learning purposes 
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#assignment-1">ASSIGNMENT 1</a>
+      <ul>
+        <li><a href="#part-a">Part A - Basic Password Cracking</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+
 ## ASSIGNMENT 1
 ### Part A - Basic Password Cracking
 - Cracking password dumps of a linux system (hashes) with <b>John the Ripper</b>
