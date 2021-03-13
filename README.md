@@ -15,4 +15,4 @@
 - Creating ssh tunnel to access a website hosted on VM on port 5000
 - Finding active usernames on the website using a <b> public dump of firestnames from Facebook </b> 
 - Using an efficient wordlist (500 worst passwords) to crack password of an active account
-- Uses bash scripting and ```curl``` command
+- Makes use of bash script and ```curl``` command
