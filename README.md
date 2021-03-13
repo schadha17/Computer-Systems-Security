@@ -27,3 +27,10 @@
 
 ### Part B - Access Control Lists
 - Using commands such as ```getfacl```, ```setfacl```, ```usermod``` to manipulate ACL for a directory structure
+
+### Part C - Race Conditions
+- Exploiting a  time of check versus time of use (ToCToU) vulnerability in order to gain root access to the VM 
+- Exploiting a vulnurable application ```vuln_slow``` that has a delay between checking permissions of an output file and ```write``` system call
+- Exploiting a vulnurable application ```vuln_fast``` that does not have a configurable sleep. This is done by executing exploit using an automated script in probabilistic fashion
+- Utilizing ```strace``` and developing an understanding of ```setuid``` bit 
+
