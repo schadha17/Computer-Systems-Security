@@ -5,7 +5,7 @@
 
 ## Assignment 1
 ### Part A 
-- Cracking password dumps of a linux system (hashes) with John the Ripper* 
+- Cracking password dumps of a linux system (hashes) with <b>John the Ripper</b>
 - 3 problems develop the ability to use modes such as single, wordlist, incremental etc. 
 
 
