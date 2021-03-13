@@ -17,6 +17,8 @@
 - Using an efficient wordlist (500 worst passwords) to crack password of an active account
 - Makes use of a bash script, ```curl``` command and ```HTTP POST``` request
 
-<br> <hr> 
+<br>
 
 ## ASSIGNMENT 2
+### Part A - File System Permissions 
+- Writing a bash function to convert a GID to a group name using the Linux group file
