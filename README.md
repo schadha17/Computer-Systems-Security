@@ -10,7 +10,10 @@
     <li>
       <a href="#assignment-1">ASSIGNMENT 1</a>
       <ul>
-        <li><a href="#part-a--basic-password-cracking"> Part A: Basic Password Cracking</a></li>
+        <li><a href="#part-a--basic-password-cracking"> Part A- Basic Password Cracking</a></li>
+        <li><a href="#part-b--offline-attack"> Part B- Offline attack</a></li>
+        <li><a href="#part-c--online-attack"> Part C- Online attack</a></li>
+
       </ul>
     </li>
   </ol>
@@ -22,10 +25,10 @@
 - Cracking password dumps of a linux system (hashes) with <b>John the Ripper</b>
 - 3 files with different difficulty develop the ability to use modes such as single, wordlist, incremental etc. 
 
-### Part B : Offline attack
+### Part B- Offline attack
 - Developing a script to generate candidate passwords from <b> John </b> and using them to decrypt an AES 256 encrypted file using ```openssl``` command
 
-### Part C : Online attack
+### Part C- Online attack
 - Creating ssh tunnel and local port forwarding to access a website hosted on hidden port inside VM
 - Finding active usernames on the website using a <b> public dump of firestnames from Facebook </b> 
 - Using an efficient wordlist (500 worst passwords) to crack password of an active account
@@ -34,15 +37,15 @@
 <br>
 
 ## ASSIGNMENT 2
-### Part A : File System Permissions 
+### Part A- File System Permissions 
 - Playing around with UID, GID and setting permission bits 
 - Writing a bash function to find group name from a GID using the Linux group file
 - Using ```find``` command with ```-exec``` paramer to execute the command after ```-exec``` for all files that match some defined rules
 
-### Part B : Access Control Lists
+### Part B- Access Control Lists
 - Using commands such as ```getfacl```, ```setfacl```, ```usermod``` to manipulate ACL for a directory structure
 
-### Part C : Race Conditions
+### Part C- Race Conditions
 - Exploiting a  time of check versus time of use (ToCToU) vulnerability in order to gain root access to the VM 
 - Exploiting a vulnurable application ```vuln_slow``` that has a delay between checking permissions of an output file and ```write``` system call
 - Exploiting a vulnurable application ```vuln_fast``` that does not have a configurable sleep. This is done by executing exploit using an automated script in probabilistic fashion
