@@ -8,7 +8,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#assignment-1">ASSIGNMENT 1</a>
+      <a href="#assigccnment-1">ASSIGNMENT 1</a>
       <ul>
         <li><a href="#part-a"> Part A - Basic Password Cracking</a></li>
       </ul>
