@@ -180,7 +180,7 @@ I found the password "123456789" for a user named "michael". We're in ;)
 
 From this website and exploit, we can safely deduce two lessons 
 
-- One should display same message for wrong usernames and passwords. Otherwise, it is easy for one to enumerate users. One username is enough to find a security weaklink.
+- One should display same message for wrong usernames and passwords. Otherwise, it is easy for one to enumerate users. One username can be enough to find a security weaklink.
 - Websites should have login rate limiting to prevent brute forcing  
 
 
