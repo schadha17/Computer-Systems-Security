@@ -32,7 +32,6 @@ sudo find . -type d -perm 777 -exec chmod 750 {} \;
 
 In the command above, ```\;``` is for escaping the ```;``` character so bash does not interpret it as a command delimeter
 
-
 **Q3 Find all the binary files in /usr/bin with the setuid bit set.**
 
 ```find . -perm +4000```
