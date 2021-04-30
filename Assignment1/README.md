@@ -105,6 +105,7 @@ if [ $? -eq 0 ]; then
 ```  echo $output | grep -P -n "[\x80-\xFF]" ``` -> Exit status of this command is 0 if non ASCII character were found
 
 <br> 
+
 ## Part C - ONLINE ATTACK 
 
 Our goal is to get past the login page of the website below. We would need to find active usernames and crack password for one of the accounts. 
