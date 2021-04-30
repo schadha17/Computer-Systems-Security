@@ -10,7 +10,7 @@ files folder contains
   - facebook-firstnames.txt
 
 
-## Part A-  Basic Password Cracking
+## Part A-  BASIC PASSWORD CRACKING
 
 Check the files folder inside this directory. It should contain, 
 
@@ -39,6 +39,12 @@ I was able to crack only one user with YahooVoicePassowrds. Therefore, I used an
 Through this command, I was able to crack rest of the users 
 
 ```~/JohnTheRipper-unstable-jumbo/run/john --wordlist=/home/student/wordlists/RockYouPasswords.txt medium_dump```
+
+### Cracking hard_dump
+
+This one occupied most of my time. To crack hard users, we will use "mangling rules" provided by JTR. 
+
+
 
 
 
