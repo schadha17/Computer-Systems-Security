@@ -42,7 +42,12 @@ Through this command, I was able to crack rest of the users
 
 ### Cracking hard_dump
 
-This one occupied most of my time. To crack hard users, we will use "mangling rules" provided by JTR. 
+This one occupied most of my time. To crack hard users, we will use wordlists with "mangling rules" provided by JTR. 
+
+```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/YahooVoicePasswords.txt hard_dump```
+```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/RockYouPasswords.txt hard_dump```
+
+However, I was only able to find 4 users with this. For the 5th user, I used ```--rules:single```. This is a hybrid of mangling rules with simple mode. It turned out that 5th user password was in a wordlist but it was flipped. 
 
 
 
