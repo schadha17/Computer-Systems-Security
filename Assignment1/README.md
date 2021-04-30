@@ -192,8 +192,8 @@ cat valid_usernames.txt |
 ```
 
 ```diff
-- Here, I am not using wordlists from partA. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. 
-This is because, users on social media sites are most likely to use bad passwords than linux users.
+- Here, I am not using wordlists from partA. I am using 500-worst-passwords.txt I found on a random Github repo. 
+- This is because, users on social media sites are most likely to use bad passwords than linux users.
 ```
 
 I found the password "123456789" for a user named "michael". We're in ;) 
