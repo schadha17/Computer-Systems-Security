@@ -108,6 +108,8 @@ if [ $? -eq 0 ]; then
 
 ## Part C - ONLINE ATTACK 
 
+**Skills to learn**: curl command line tool, bash scripting, password cracking
+
 Our goal is to get past the login page of the website below. We would need to find active usernames and crack password for one of the accounts. 
 
 [[Website]]
@@ -134,4 +136,13 @@ cat facebook-firstnames.txt | head -n100000 |
 ```
 
 This script works by making a POST request to the server and if the response contains "Error. Username does not exist.", we can skip that username and look for other candidates
+
+I tried to login with an active user "adam" with a random password. This is what I got: 
+
+[[website Invalid password.]] 
+
+Again, we can modify our existing exploit to search for "Invalid password." string here.
+
+**NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords. 
+
 
