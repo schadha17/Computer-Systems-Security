@@ -116,7 +116,7 @@ Our goal is to get past the login page of the website below. We would need to fi
 
 I tried a random username and I get a following alert:
 
-[[website username not found]]
+![Screenshot](files/website/website-uname-not-found.png?raw=true)
 
 I run the following script to find active usernames: 
 
@@ -139,7 +139,7 @@ This script works by making a POST request to the server and if the response con
 
 I tried to login with an active user "adam" with a random password. This is what I got: 
 
-[[website Invalid password.]] 
+![Screenshot](files/website/website-invalid-pass.png?raw=true)
 
 Again, we can modify our existing exploit to search for "Invalid password." string here.
 
@@ -151,5 +151,4 @@ Again, we can modify our existing exploit to search for "Invalid password." stri
 
 I found the password "123456789" for a user named "michael". We're in ;) 
 
-[[login]]
-
+![Screenshot](files/website/website-login-success.png?raw=true)
