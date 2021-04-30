@@ -10,7 +10,8 @@ Check the files folder inside this directory. It should contain,
 
 We will use John along with [jumbo patch](http://openwall.info/wiki/john/patches). Every file, namely, easy_dump, medium_dump, hard_dump has 5 users you need to crack
 
-To view passwords already cracked by JTR for a password dump file, one can run the following command: ```~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
+To view passwords already cracked by JTR for a password dump file, one can run the following command: 
+``` ~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
 
 ### Cracking easy_dump
 
