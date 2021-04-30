@@ -1,7 +1,7 @@
 
 ## Part A-  BASIC PASSWORD CRACKING
 
-Skills you will learn: John the ripper cracking modes 
+**Skills to learn**: John the ripper cracking modes 
 
 Check the files folder inside this directory. It should contain, 
 
@@ -45,7 +45,7 @@ However, I was only able to find 4 users with this. For the 5th user, I used ```
 
 ## Part B - OFFLINE ATTACK 
 
-Skills you will learn: Bash scripting, openssl utility, Generating passwords from John the ripper to stdout 
+**Skills to learn**: Bash scripting, openssl utility, Generating passwords from John the ripper to stdout 
 
 Hacker encrypted the file: secret_file.aes256.txt
 - It was encrypted using AES 256 using the openssl command line tool.
