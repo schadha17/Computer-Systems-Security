@@ -112,7 +112,7 @@ if [ $? -eq 0 ]; then
 
 Our goal is to get past the login page of the website below. We would need to find active usernames and crack password for one of the accounts. 
 
-[[Website]]
+![Demo](files/website/website.png?raw=true "Screenshot1")
 
 I tried a random username and I get a following alert:
 
