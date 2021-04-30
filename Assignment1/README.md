@@ -81,6 +81,9 @@ echo "NOT FOUND :("
 
 This is my exploit. Let's break it down to understand it. 
 
+```rm /home/student/JohnTheRipper-unstable-jumbo/run/john.rec``` -> This is done to prevent the error "Crash recovery file is locked". 
+
+```/home/student/JohnTheRipper-unstable-jumbo/run/john --wordlist=wordlists/YahooVoicePasswords.txt -stdout |``` -> Generate passwords from wordlist using John and output them on stdout. Later, pipe them so our while loop can read them line by line. 
 
 
 ## Part C
