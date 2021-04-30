@@ -2,8 +2,7 @@
 ## INSTRUCTIONS: 
 files folder contains 
 - Part A 
-  - Password hash files: easy_dump, medium_dump, hard_dump
-  - wordlists folder: GawkerPasswords.txt, SonyPasswords.txt, YahooVoicePasswords.txt, passwords.txt
+
 - Part B
   - secret_file.aes256.txt
   - practice_file.aes256.MD5.txt
@@ -12,11 +11,15 @@ files folder contains
 
 
 ## Part A-  Basic Password Cracking
+
+Check the files folder inside this directory. It should contain, 
+
+  - Password hash files: easy_dump, medium_dump, hard_dump
+  - wordlists folder: GawkerPasswords.txt, SonyPasswords.txt, YahooVoicePasswords.txt, passwords.txt
+
 We will use John along with [jumbo patch](http://openwall.info/wiki/john/patches). Every file, namely, easy_dump, medium_dump, hard_dump has 5 users you need to crack
 
-To view passwords already cracked by JTR for a password dump file, one can run the following command 
-
-```~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
+To view passwords already cracked by JTR for a password dump file, one can run the following command: ```~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
 
 ### Cracking easy_dump
 
