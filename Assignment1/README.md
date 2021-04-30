@@ -85,5 +85,24 @@ This is my exploit. Let's break it down to understand it.
 
 ```/home/student/JohnTheRipper-unstable-jumbo/run/john --wordlist=wordlists/YahooVoicePasswords.txt -stdout |``` -> Generate passwords from wordlist using John and output them on stdout. Later, pipe them so our while loop can read them line by line. 
 
+```    hash=`echo -n $password | openssl dgst -md5 | cut -d ' ' -f2` ``` -> Generate md5 hash and just take the hash value from output i.e remove extra text "(stdin)="
+
+```    output=`openssl enc -d -aes256 -a -k $hash -in secret_file.aes256.txt` ``` -> Try to decrypt using openssl. 
+
+```    
+if [ $? -eq 0 ]; then 
+  echo $output | grep -P -n "[\x80-\xFF]"
+        if [ $? -eq 0 ]; then
+            continue
+        else
+            echo "\n found 1 $password"
+            exit 0;
+
+``` 
+
+-> $? refers to the status code of the last command executed. If it passes, then
+
+
+
 
 ## Part C
