@@ -4,7 +4,7 @@
 **Skills to learn**: 
 
 ```diff
-+ John the ripper cracking modes
++ John the ripper cracking modes (single, wordlist and mangling rules) 
 ``` 
 
 Check the files folder inside this directory. It should contain, 
@@ -23,7 +23,9 @@ The following command tells JTR to try “simple” mode, then the default wordl
 
 ```~/JohnTheRipper-unstable-jumbo/run/john easy_dump```
 
-NOTE: ~/JohnTheRipper-unstable-jumbo/run/john is a path to the executable 
+```diff
+- ~/JohnTheRipper-unstable-jumbo/run/john is a path to the executable 
+```
 
 ### Cracking medium_dump
 
@@ -189,7 +191,9 @@ cat valid_usernames.txt |
   done
 ```
 
-**NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
+```diff
+- Here, I am not using wordlists from partA. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
+```
 
 I found the password "123456789" for a user named "michael". We're in ;) 
 
