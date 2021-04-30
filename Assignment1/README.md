@@ -135,7 +135,7 @@ cat facebook-firstnames.txt | head -n100000 |
   done
 ```
 
-This script works by making a POST request to the server and if the response contains "Error. Username does not exist.", we can skip that username and look for other candidates
+This script works by making a POST request to the server and if the response contains **"Error. Username does not exist."**, we can skip that username and look for other candidates
 
 I tried to login with an active user "adam" with a random password. This is what I got: 
 
@@ -143,6 +143,11 @@ I tried to login with an active user "adam" with a random password. This is what
 
 Again, we can modify our existing exploit to search for "Invalid password." string here.
 
-**NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords. 
+
+
+**NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
+
+**SECURITY LESSON: ** We 
+
 
 
