@@ -12,7 +12,9 @@ files folder contains
 
 
 ## Part A-  Basic Password Cracking
-We will use John along with [jumbo patch](http://openwall.info/wiki/john/patches). To view passwords cracked by JTR for a password dump file, one can run the following command 
+We will use John along with [jumbo patch](http://openwall.info/wiki/john/patches). Every file, namely, easy_dump, medium_dump, hard_dump has 5 users you need to crack
+
+To view passwords already cracked by JTR for a password dump file, one can run the following command 
 
 ```~/JohnTheRipper-unstable-jumbo/run/john --show easy_dump```
 
