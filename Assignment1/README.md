@@ -100,7 +100,9 @@ if [ $? -eq 0 ]; then
 
 ``` 
 
--> $? refers to the status code of the last command executed. If it passes, then
+-> $? refers to the exit status of the last command executed. If the command was successful, then it is 0 otherwise 1
+
+```  echo $output | grep -P -n "[\x80-\xFF]" ``` -> Exit status of this command is 0 if non ASCII character were found
 
 
 
