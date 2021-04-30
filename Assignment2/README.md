@@ -84,8 +84,9 @@ Gotham
 > setfacl -x u:skyle Arkham/
 ```
 
-Results: 
-[b-5](images/b-5.png)
+Results after removing ACL entries: 
+
+![b-5](images/b-5.png)
 
 **6. Give the ACL for all subdirectories of Gotham.** 
 ```diff
