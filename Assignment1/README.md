@@ -147,7 +147,9 @@ Again, we can modify our existing exploit to search for "Invalid password." stri
 
 **NOTE**: Here, I am not using wordlists from **partA**. Instead, I am using 500-worst-passwords.txt I found on a random Github repo. This is because, users on social media sites are most likely to use bad passwords than linux users.
 
-**SECURITY LESSON: ** We 
+**SECURITY LESSON:** From this website and exploit, we can safely deduce that one should display same message for wrong usernames and passwords. Otherwise, it is easy for one to enumerate users. One username is enough to find a security weaklink. 
 
+I found the password "123456789" for a user named "michael". We're in ;) 
 
+[[login]]
 
