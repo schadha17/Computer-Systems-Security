@@ -102,7 +102,8 @@ Results after removing ACL entries:
 
 This involves learning to exploit a classic time of check versus time of use (ToCToU) vulnerability in order to gain root access on the VM. We are given 2 files 
 
-```root_file``` is only writable by root 
+```root_file``` is owned by root and has no write permissions for any other users. 
+
 ```
 student@COMP4108-a2:/A2/Racing/Slow$ ls -l root_file
 -rw-r--r-- 1 root root 319 Sep 14  2012 root_file
@@ -114,8 +115,17 @@ student@COMP4108-a2:/A2/Racing/Slow$ ls -l vuln_slow
 -rwsrwsr-x 1 root root 9116 Sep 14  2012 vuln_slow
 ```
 
-vuln_slow checks the permissions on its debug file, sleeps for the provided number of seconds, and then writes to the debug file. 
+It takes two arguments: a delay in seconds and a message to write to a debug file.
 
-root_file that is owned by root and has no write permissions for any other users. 
+```
+student@COMP4108-a2:/A2/Racing/Slow$ ./vuln_slow
+Syntax: ./vuln_slow [delay seconds] [message]
+```
+
+vuln_slow binary works by checking the permissions on its debug file, sleeping for the provided number of seconds, and then writing to the debug file. 
 
 Our objective is to exploit vuln_slow into writing a message you provide into root_file.
+
+WRITEUP: 
+
+
