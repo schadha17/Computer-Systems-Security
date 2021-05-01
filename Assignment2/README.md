@@ -95,3 +95,9 @@ Results after removing ACL entries:
 
 ## Part C - Race Conditions
 
+```diff 
+- Skeleton code is provided in Racing folder
+```
+
+This involves learning to exploit a classic time of check versus time of use (ToCToU) vulnerability in order to gain root access on the VM. 
+
