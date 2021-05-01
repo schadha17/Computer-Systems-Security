@@ -93,11 +93,29 @@ Results after removing ACL entries:
 > find /A2/Gotham/ -type d -exec getfacl {} \; 
 ```
 
-## Part C - Race Conditions
+## Part C - Race Conditions - TOCTOU 
 
+### Slow (Easy difficulty) 
 ```diff 
 - Skeleton code is provided in Racing folder
 ```
 
-This involves learning to exploit a classic time of check versus time of use (ToCToU) vulnerability in order to gain root access on the VM. 
+This involves learning to exploit a classic time of check versus time of use (ToCToU) vulnerability in order to gain root access on the VM. We are given 2 files 
 
+```root_file``` is only writable by root 
+```
+student@COMP4108-a2:/A2/Racing/Slow$ ls -l root_file
+-rw-r--r-- 1 root root 319 Sep 14  2012 root_file
+```
+
+```vuln_slow``` binary has setuid bit set 
+```
+student@COMP4108-a2:/A2/Racing/Slow$ ls -l vuln_slow
+-rwsrwsr-x 1 root root 9116 Sep 14  2012 vuln_slow
+```
+
+vuln_slow checks the permissions on its debug file, sleeps for the provided number of seconds, and then writes to the debug file. 
+
+root_file that is owned by root and has no write permissions for any other users. 
+
+Our objective is to exploit vuln_slow into writing a message you provide into root_file.
