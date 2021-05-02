@@ -202,4 +202,16 @@ It seems like the binary is trying to check write permission using ```access()``
 
 During the time when binary is sleeping, what if we create a symlink from ```.debug_log``` to ```root_file```. The binary cannot assume the state managed by the operating system will not change between system calls. This is why we are able to exploit the vulnurability using external input. 
 
+The exploitation process is: 
+- Run the binary using command ```./vuln_slow 60 hacked_by_anon```. It should be in sleep for 60 seconds. 
+- During these 60 seconds, run ```ln -s /A2/Racing/Slow/root_file /home/student/.debug_log``` in a separate terminal
+
+![symlink] (images/symlink_racing_slow)
+
 ![racing](images/racing_slow)
+
+SUCCESS! 
+
+```diff
+- path to directories might change 
+```
