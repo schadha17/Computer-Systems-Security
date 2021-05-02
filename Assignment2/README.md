@@ -206,12 +206,12 @@ The exploitation process is:
 - Run the binary using command ```./vuln_slow 60 hacked_by_anon```. It should be in sleep for 60 seconds. 
 - During these 60 seconds, run ```ln -s /A2/Racing/Slow/root_file /home/student/.debug_log``` in a separate terminal
 
-![symlink] (images/symlink_racing_slow)
+![symlink](images/symlink_racing_slow)
 
 ![racing](images/racing_slow)
 
 SUCCESS! 
 
 ```diff
-- path to directories might change 
+- NOTE: path to directories might change for you. It might not be /A2/Racing/Slow for root_file and /home/student/ for .debug_log file
 ```
