@@ -210,7 +210,7 @@ The exploitation process is:
 
 ![symlink](images/symlink_racing_slow)
 
-![racing](images/racing_slow)
+![racing_slow](images/racing_slow)
 
 SUCCESS! 
 
@@ -258,4 +258,11 @@ done
 **EXPLOITATION PROCESS:**
 
 We are running ```vuln_fast``` multiple times in an infinite loop. Concurrently, we run another process that creates symlinks from debug file to the target file. There comes a period in the execution of both scripts where vuln_fast process (child process of ```vuln.sh```) gets past the ```access()``` system call as ```.debug_log``` is accessible by the user who spawned the process
-Then, ```exploit.sh``` removes the ```.debug_log``` file and creates a symlink to /root/.rhosts named .debug_log. 
+Right after that, ```exploit.sh``` removes the ```.debug_log``` file and creates a symlink to ```/root/.rhosts``` named ```.debug_log```. Then, the binary process executes ```open()``` to verify the effective uid to check the write permissions to ```/root/.rhosts```. Since ```setuid bit``` is set, effective uid would be ```root``` and we gain the write access. 
+
+As a result, I escalated my priviliges and I am able to get root access without typing any password. 
+
+![racing_fast](images/racing_fast)
+
+
+
