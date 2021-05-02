@@ -1,0 +1,9 @@
+#
+# This file is owned by root!
+# You can test your ability to exploit a race condition by attempting to
+# insert lines into this file. Note: You should *NOT* chown/chmod this 
+# file. You *MUST* insert lines into it using the setuid program 'vuln'
+# included in the same directory
+#
+#
+# Your Lines Should Follow Here:
