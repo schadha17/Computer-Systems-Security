@@ -27,5 +27,8 @@ In ```LOW``` security mode DVWA attempts no exploit mitigation strategies. In ``
 
 ## Part C - Where's the BeEF? 
 
+**Q1: Exploit the DVWA Command Execution vulnerability to read the contents of the file /var/www/secret_a.txt. You must get the contents of this file through the DVWA application by crafting a suitable command injection for the vulnerable page** 
+
+LOW SECURITY: 
 
 
