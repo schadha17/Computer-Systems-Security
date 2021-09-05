@@ -1,4 +1,4 @@
-# Computer-Systems-Security-COMP4108
+# Computer-Systems-Security
 
 - DISCLAIMER: I do not promote plagarism or copying of the code
 - This repository will involve writeups of the assignments for education and learning purposes 
